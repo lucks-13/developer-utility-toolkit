@@ -19,7 +19,7 @@ def get_repo(owner, repo):
         return data_dict
     except requests.exceptions.HTTPError:
         if response.status_code == 404:
-            print("The repo you are looking is not found.")
+            print("The repository not found.")
         elif response.status_code == 403:
             print("The request was forbidden.")
         else:
@@ -36,8 +36,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("owner")
 parser.add_argument("repo")
 args = parser.parse_args()
-owner = args.owner
-repo = args.repo
+owner = args.owner.strip()
+repo = args.repo.strip()
 if not owner or not repo:
     parser.error("Both owner and repository name are required.")
 data = get_repo(owner,repo)
