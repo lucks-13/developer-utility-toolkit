@@ -27,11 +27,15 @@ def get_repo(owner, repo):
          return None
 while True:
     try:
-        owner = input("Enter GitHub Username or Organiztion name : ")
-        repo = input("Enter repo")
+        owner = input("Enter GitHub Username or Organiztion name : ").strip()
+        repo = input("Enter repository name : ").strip()
+        if not owner or not repo:
+            continue
+        else:
+            break
     except ValueError:
         continue
-data = get_repo("python","cpython")
+data = get_repo(owner,repo)
 
 if data is not None:
     for key,value in data.items():
