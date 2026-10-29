@@ -34,7 +34,13 @@ def test_get_repo_success(mock_get):
     assert result["Stars"] == 100
     assert result["Watchers"] == 100
     assert result["Open Issues"] == 50
-    asser
+    assert result["Default Branch"] == "main"
+    assert result["License"] == "MIT"
+    assert result["Size (KB)"] == 50000
+    assert result["Created At"] == "2020-01-01T00:00:00Z"
+    assert result["Topics"] == "python, programming"
+    assert result["Archived"] is False
+    assert result["Is Fork"] is False
 
     mock_get.assert_called_once_with("https://api.github.com/repos/python/cpython",timeout=10)
 
