@@ -1,1 +1,4 @@
-def get_reposito
+import requests
+
+def get_repo(owner,repo):
+    pass
