@@ -26,17 +26,17 @@ def get_repo(owner, repo):
          print("The request timed out.")
          return None
 while True:
-    try:
         owner = input("Enter GitHub Username or Organiztion name : ").strip()
         repo = input("Enter repository name : ").strip()
         if not owner or not repo:
+            print("Both fields are required. Please try again.")
             continue
-        else:
-            break
-    except ValueError:
-        continue
+        break
 data = get_repo(owner,repo)
 
 if data is not None:
+    print("\n=============================")
+    print("     Github Repository       ")
+    print("=============================")
     for key,value in data.items():
         print(f"{key} : {value}")
