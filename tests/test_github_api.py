@@ -1,3 +1,4 @@
+import requests
 from unittest.mock import Mock, patch
 from toolkit.github_api import get_repo
 
@@ -10,7 +11,8 @@ def test_get_repo_success(mock_get):
         "owner" : {"login" : "python"},
         "description" : "Python programming language",
         "language" : "Python",
-        "stargazers_count" : 20,
+        "stargazers_count" : 100,
+        "forks_count" : 20,
         "html_url" :  "https://github.com/python/cpython"
     }
 
@@ -20,4 +22,5 @@ def test_get_repo_success(mock_get):
     assert result["Repository"] == "cpython"
     assert result["Owner"] == "python"
     assert result["Stars"] == 100
-    mock_get.assert_called_once_with()
+    mock_get.assert_called_once_with("https://api.github.com/repos/python/cpython",timeout=10)
+
