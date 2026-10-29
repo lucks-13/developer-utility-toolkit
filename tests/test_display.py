@@ -8,4 +8,7 @@ def test_display_repo(capsys):
     }
 
     display_repo(data)
-    captured = capsys.
+    captured = capsys.readouterr()
+    assert "Github Repository" in captured.out
+    assert "Repository : cpython" in captured.out
+    assert "Owner : python" in captured.out
