@@ -8,13 +8,13 @@ def get_repo(owner, repo):
         response.raise_for_status()
         data = response.json()
         data_dict = {
-            "Repository" : data["name"],
-            "Owner" : data["owner"]["login"],
-            "Description" : data["description"],
-            "Language" : data["language"],
-            "Stars" : data["stargazers_count"],
-            "Forks" : data["forks_count"],
-            "URL" : data["html_url"]
+            "Repository" : data["name"] or "Not Available",
+            "Owner" : data["owner"]["login"] or "Not Available",
+            "Description" : data["description"] or "Not Available",
+            "Language" : data["language"] or "Not Available",
+            "Stars" : data["stargazers_count"] is not None else "Not Available",
+            "Forks" : data["forks_count"] is not None else "Not Available",
+            "URL" : data["html_url"] or "Not Available"
         }
         return data_dict
     except requests.exceptions.HTTPError:
