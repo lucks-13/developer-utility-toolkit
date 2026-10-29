@@ -18,14 +18,19 @@ def get_repo(owner, repo):
         }
         return data_dict
     except requests.exceptions.HTTPError:
-         print(f"Github API error : {response.status_code}.")
-         return None
+        if response.status_code == 404:
+            print("The repo you are looking is not found.")
+        elif response.status_code == 403:
+            print("The request was forbidden.")
+        else:
+            print(f"Github API error : {response.status_code}.")
+        return None
     except requests.exceptions.ConnectionError:
-         print("Unable to connect Github.")
-         return None
+        print("Unable to connect Github.")
+        return None
     except requests.exceptions.Timeout:
-         print("The request timed out.")
-         return None
+        print("The request timed out.")
+        return None
 parser = argparse.ArgumentParser()
 parser.add_argument("owner")
 parser.add_argument("repo")
