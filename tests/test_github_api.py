@@ -17,7 +17,13 @@ def test_get_repo_success(mock_get):
         "watchers_count" : 100,
         "open_issues_count" : 50,
         "default_branch" : "main",
-        "license" : {""}
+        "license" : {"spdx_id" : "MIT"},
+        "size" : 50000,
+        "created_at" : "2020-01-01T00:00:00Z",
+        "updated_at" : "2026-01-01T00:00:00Z",
+        "topics" : ["python","programming"],
+        "archived" : False,
+        "fork" : False
     }
 
     mock_response.raise_for_status.return_value = None
@@ -26,6 +32,10 @@ def test_get_repo_success(mock_get):
     assert result["Repository"] == "cpython"
     assert result["Owner"] == "python"
     assert result["Stars"] == 100
+    assert result["Watchers"] == 100
+    assert result["Open Issues"] == 50
+    asser
+
     mock_get.assert_called_once_with("https://api.github.com/repos/python/cpython",timeout=10)
 
 @patch("toolkit.github_api.requests.get")
