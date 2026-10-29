@@ -20,7 +20,9 @@ def get_repo(owner, repo):
             "License" : (data["license"]["spdx_id"] if data["license"] is not None else "Not Available"),
             "Size (KB)" : data["size"],
             "Created At" : data["created_at"],
-            ""
+            "Topics" : ", ".join(data["topics"]) if data["topics"] else "None",
+            "Archived" : data["archived"],
+            "Is Fork" : data["fork"]
         }
         return data_dict
     except requests.exceptions.HTTPError:

@@ -13,7 +13,11 @@ def test_get_repo_success(mock_get):
         "language" : "Python",
         "stargazers_count" : 100,
         "forks_count" : 20,
-        "html_url" :  "https://github.com/python/cpython"
+        "html_url" :  "https://github.com/python/cpython",
+        "watchers_count" : 100,
+        "open_issues_count" : 50,
+        "default_branch" : "main",
+        "license" : {""}
     }
 
     mock_response.raise_for_status.return_value = None
