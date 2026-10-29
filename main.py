@@ -1,4 +1,7 @@
 import requests
 
 def get_repo(owner,repo):
-    pass
+    url = 
+
+response = requests.get("https://api.github.com/repos/python/cpython")
+print(response.status_code)
