@@ -15,4 +15,9 @@ def test_get_repo_success(mock_get):
     }
 
     mock_response.raise_for_status.return_value = None
-    mock_get.re
+    mock_get.return_value = mock_response
+    result = get_repo("python", "cpython")
+    assert result["Repository"] == "cpython"
+    assert result["Owner"] == "python"
+    assert result["Stars"] == 100
+    mock_get.assert_called_once_with()
