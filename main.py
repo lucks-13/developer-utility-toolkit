@@ -5,6 +5,7 @@ from toolkit.display import display_repo
 parser = argparse.ArgumentParser()
 parser.add_argument("owner")
 parser.add_argument("repo")
+
 args = parser.parse_args()
 owner = args.owner.strip()
 repo = args.repo.strip()
