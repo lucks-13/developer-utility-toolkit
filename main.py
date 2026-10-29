@@ -2,7 +2,7 @@ import requests
 
 def get_repo(owner, repo):
     try:
-        url = f"https://api.github.com/repos/{owner}/{repo}"
+        url = f"https://api.githubcom/repos/{owner}/{repo}"
         response = requests.get(url)
         response.raise_for_status()
         data = response.json()
@@ -19,6 +19,8 @@ def get_repo(owner, repo):
     except requests.exceptions.HTTPError:
          print("404 Error page not found.")
          return
+    except requests.exceptions.ConnectionError:
+         print("Unable to connect Github.")
 data = get_repo("python","cpython")
 
 for k,v in data.items():
