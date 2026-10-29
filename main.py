@@ -18,7 +18,7 @@ def get_repo(owner, repo):
         }
         return data_dict
     except requests.exceptions.HTTPError:
-         print("Github returned an HTTP error.")
+         print(f"Github API error : {response.status_code}.")
          return None
     except requests.exceptions.ConnectionError:
          print("Unable to connect Github.")
@@ -26,18 +26,12 @@ def get_repo(owner, repo):
     except requests.exceptions.Timeout:
          print("The request timed out.")
          return None
-while True:
-        parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser()
 parser.add_argument("owner")
-parser.add_argumrnt("repo")
-
+parser.add_argument("repo")
 args = parser.parse_args()
-        owner = input("Enter GitHub Username or Organiztion name : ").strip()
-        repo = input("Enter repository name : ").strip()
-        if not owner or not repo:
-            print("Both fields are required. Please try again.")
-            continue
-        break
+owner = args.owner
+repo = args.repo
 data = get_repo(owner,repo)
 
 if data is not None:
