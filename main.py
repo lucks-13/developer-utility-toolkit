@@ -1,4 +1,5 @@
 import requests
+import argparse
 
 def get_repo(owner, repo):
     try:
@@ -26,6 +27,11 @@ def get_repo(owner, repo):
          print("The request timed out.")
          return None
 while True:
+        parser = argparse.ArgumentParser()
+parser.add_argument("owner")
+parser.add_argumrnt("repo")
+
+args = parser.parse_args()
         owner = input("Enter GitHub Username or Organiztion name : ").strip()
         repo = input("Enter repository name : ").strip()
         if not owner or not repo:
