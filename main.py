@@ -23,8 +23,16 @@ def get_repo(owner, repo):
          print("Unable to connect Github.")
          return None
     except requests.exceptions.Timeout:
-         
+         print("The request timed out.")
+         return None
+while True:
+    try:
+        owner = input("Enter GitHub Username or Organiztion name : ")
+        repo = input("Enter repo")
+    except ValueError:
+        continue
 data = get_repo("python","cpython")
 
-for k,v in data.items():
-        print(f"{k} : {v}")
+if data is not None:
+    for key,value in data.items():
+        print(f"{key} : {value}")
