@@ -16,7 +16,11 @@ def get_repo(owner, repo):
             "URL" : data["html_url"] or "Not Available",
             "Watchers" : data["watchers_count"],
             "Open Issues" : data["open_issues_count"],
-            "Default Branch" : da
+            "Default Branch" : data["default_branch"] or "Not Available",
+            "License" : (data["license"]["spdx_id"] if data["license"] is not None else "Not Available"),
+            "Size (KB)" : data["size"],
+            "Created At" : data["created_at"],
+            ""
         }
         return data_dict
     except requests.exceptions.HTTPError:
