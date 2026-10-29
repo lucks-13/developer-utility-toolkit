@@ -24,3 +24,10 @@ def test_get_repo_success(mock_get):
     assert result["Stars"] == 100
     mock_get.assert_called_once_with("https://api.github.com/repos/python/cpython",timeout=10)
 
+    @patch("toolkit.github_api.requests.get")
+    def test_get_repo_not_found(mock_get):
+        mock_response = Mock()
+        mock_response.status_code = 404
+
+        mock_response.raise_for_status.side_effect = requests.exceptions.HTTPError("404 Not Found")
+        mo
