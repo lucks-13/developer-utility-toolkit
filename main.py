@@ -9,9 +9,12 @@ def get_repo(owner, repo):
         "Owner" : data["owner"]["login"],
         "Description" : data["description"],
         "Language" : data["language"],
-        "Stars" : data["star"]
-
-    }
+        "Stars" : data["stargazers_count"],
+        "Forks" : data["forks_count"],
+        "URL" : data["html_url"]
+    } 
     return data_dict
 data = get_repo("python","cpython")
-print(data)
+
+for k,v in data.items():
+        print(f"{k} : {v}")
