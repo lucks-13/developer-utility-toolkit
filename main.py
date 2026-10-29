@@ -3,6 +3,7 @@ import requests
 def get_repo(owner, repo):
     url = f"https://api.github.com/repos/{owner}/{repo}"
     response = requests.get(url)
+    response.raise_for_status()
     data = response.json()
     data_dict = {
         "Repository" : data["name"],
