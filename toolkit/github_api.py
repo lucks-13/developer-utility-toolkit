@@ -13,7 +13,10 @@ def get_repo(owner, repo):
             "Language" : data["language"] or "Not Available",
             "Stars" : data["stargazers_count"] if data["stargazers_count"] is not None else "Not Available",
             "Forks" : data["forks_count"] if data["forks_count"] is not None else "Not Available",
-            "URL" : data["html_url"] or "Not Available"
+            "URL" : data["html_url"] or "Not Available",
+            "Watchers" : data["watchers_count"],
+            "Open Issues" : data["open_issues_count"],
+            "Default Branch" : da
         }
         return data_dict
     except requests.exceptions.HTTPError:

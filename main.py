@@ -6,8 +6,8 @@ def main():
     parser = argparse.ArgumentParser(description="Developer Utility Toolkit")
     subparsers = parser.add_subparsers(dest="command", required=True)
     repo_parser = subparsers.add_parser("repo", help="Get github repo information.")
-    parser.add_argument("owner", help="Github username or organization name")
-    parser.add_argument("repo", help="Name of the github repo")
+    repo_parser.add_argument("owner", help="Github username or organization name")
+    repo_parser.add_argument("repo", help="Name of the github repo")
 
     args = parser.parse_args()
     if args.command == "repo":
