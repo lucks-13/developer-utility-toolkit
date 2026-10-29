@@ -33,4 +33,11 @@ def test_get_repo_not_found(mock_get):
     result = get_repo("fakeuser", "fake-repo")
     assert result is None
 
-@patch("toolkit.gith")
+@patch("toolkit.github_api.requests.get")
+def test_get_repo_timeout(mock_get):
+    mock_get.side_effect = requests.exceptions.Timeout
+    result = get_repo("python","cpython")
+    assert result is None
+
+@patch("toolkit.github_api.requests.get")
+def test_get_repo_connection_error(mock_get)
