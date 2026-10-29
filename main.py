@@ -12,8 +12,8 @@ def get_repo(owner, repo):
             "Owner" : data["owner"]["login"] or "Not Available",
             "Description" : data["description"] or "Not Available",
             "Language" : data["language"] or "Not Available",
-            "Stars" : data["stargazers_count"] is not None else "Not Available",
-            "Forks" : data["forks_count"] is not None else "Not Available",
+            "Stars" : data["stargazers_count"] if data["stargazers_count"] is not None else "Not Available",
+            "Forks" : data["forks_count"] if data["forks_count"] is not None else "Not Available",
             "URL" : data["html_url"] or "Not Available"
         }
         return data_dict
@@ -31,12 +31,15 @@ def get_repo(owner, repo):
     except requests.exceptions.Timeout:
         print("The request timed out.")
         return None
+    
 parser = argparse.ArgumentParser()
 parser.add_argument("owner")
 parser.add_argument("repo")
 args = parser.parse_args()
 owner = args.owner
 repo = args.repo
+if not owner or not repo:
+    parser.error("Both owner and repository name are required.")
 data = get_repo(owner,repo)
 
 if data is not None:
