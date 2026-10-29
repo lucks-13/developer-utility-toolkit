@@ -2,9 +2,9 @@ import argparse
 from toolkit.github_api import get_repo
 from toolkit.display import display_repo
 
-parser = argparse.ArgumentParser()
-parser.add_argument("owner")
-parser.add_argument("repo")
+parser = argparse.ArgumentParser(description="Fetch and display github repo info.")
+parser.add_argument("owner", help="Github username or organization name")
+parser.add_argument("repo", help="Name of the github repo")
 
 args = parser.parse_args()
 owner = args.owner.strip()
