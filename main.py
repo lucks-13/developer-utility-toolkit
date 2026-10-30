@@ -21,7 +21,9 @@ def main():
     compare_parser.add_argument("owner2")
     compare_parser.add_argument("repo2")
 
-    search_parser = subparsers.add_parser("search", help="Search ")
+    search_parser = subparsers.add_parser("search", help="Search github repo")
+    search_parser.add_argument("query")
+    search_parser.add_argument("--language", help="Filter repo by programm")
 
     args = parser.parse_args()
     if args.command == "repo":
