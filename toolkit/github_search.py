@@ -19,6 +19,9 @@ def search_repos(query, language=None, limit=5):
         repos = []
         for repo in data.get("items", []):
             repo_data = {
-                "Repository" : repo.get("name") or "Not Avilable",
-                "Full Name" : repo.get("full_name") 
+                "Repository" : repo.get("name") or "Not Available",
+                "Full Name" : repo.get("full_name") or "Not Available",
+                "Owner" : repo.get("owner", {}).get("login", "Not Available"),
+                "Description" : repo.get("description") or "Not Available",
+                "Language" : repo.
             }
