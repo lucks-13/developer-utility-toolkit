@@ -111,6 +111,12 @@ def display_comparison(data):
 
     forks = data["Forks"]
     if forks[0] > forks[1]:
-        print()
+        print(f"Most Forks : {repo1}")
+    elif forks[1] > forks[0]:
+        print(f"Most Forks : {repo2}")
+    else:
+        print("Most Forks : Both repo have equal forks.")
+    print("----------------------------------")
+    
 
 
