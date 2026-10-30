@@ -22,10 +22,14 @@ def test_display_repo(capsys):
     display_repo(data)
     captured = capsys.readouterr()
     assert "Github Repository" in captured.out
-    assert
-    assert "Repository : cpython" in captured.out
-    assert "Owner : python" in captured.out
-    assert "Stars : 100" in captured.out
+    assert "Basic Information" in captured.out
+    assert "Statistics" in captured.out
+    assert "Repository Details" in captured.out
+    assert "cpython" in captured.out
+    assert "python" in captured.out
+    assert "Stars" in captured.out
+    assert "100" in captured.out
+    assert "MIT" in captured.out
 
 def test_display_repo_no_data(capsys):
     display_repo(None)
