@@ -12,6 +12,22 @@ def compare_repos(repo1, repo2):
             repo2.get("Owner", "Not Available")
         ],
         "Language" : [
-            
+            repo1.get("Language", "Not Availabe"),
+            repo2.get("Language", "Not Availabe")
         ],
+        "Stars" : [
+            repo1.get("Stars", 0),
+            repo2.get("Stars", 0)
+        ],
+        "Forks" : [
+            repo1.get("Forks", 0),
+            repo2.get("Forks", 0)
+        ],
+        "Watchers" : [
+            repo1.get("Watchers", 0),
+            repo2.get("Watchers", 0)
+        ],
+        "Open Issues" : [
+            
+        ]
     }
