@@ -63,9 +63,11 @@ def main():
             parser.error("Search query is required.")
         if args.limit < 1 or args.limit > 100:
             parser.error("Limit must be between 1 and 100.")
-        language = args.
-
-
+        language = args.language.strip() if args.language else None
+        if language == "":
+            parser.error("Language cannot be empty.")
+        data = search_repos(query,language,args.limit)
+        display_search_results(data)
 
 if __name__ == "__main__":
     main()
