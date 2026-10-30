@@ -62,4 +62,13 @@ def test_search_repos_not_found(mock_get):
     mock_response.status_code = 404
     mock_response.raise_for_status.side_effect = (requests.exceptions.HTTPError("404 Not Found"))
     mock_get.return_value = mock_response
-    result = 
+    result = search_repos("python")
+    assert result is None
+
+@patch("toolkit.github_search.requests.get")
+def test_search_repos_timeout(mock_get):
+    mock_get.side_effect = requests.exceptions.Timeout
+    result = search_repos("python")
+    assert result is None
+
+@patch
