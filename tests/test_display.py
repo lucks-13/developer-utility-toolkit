@@ -24,7 +24,7 @@ def test_display_repo(capsys):
     assert "Github Repository" in captured.out
     assert "Basic Information" in captured.out
     assert "Statistics" in captured.out
-    assert "Repository Details" in captured.out
+    assert "Repo Details" in captured.out
     assert "cpython" in captured.out
     assert "python" in captured.out
     assert "Stars" in captured.out
