@@ -16,4 +16,9 @@ def search_repos(query, language=None, limit=5):
         response = requests.get(url, params=params, timeout=10)
         response.raise_for_status()
         data = response.json()
-        
+        repos = []
+        for repo in data.get("items", []):
+            repo_data = {
+                "Repository" : repo.get("name") or "Not Avilable",
+                "Full Name" : repo.get("full_name") 
+            }
