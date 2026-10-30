@@ -29,16 +29,24 @@ def main():
     search_parser.add_argument("query")
     search_parser.add_argument("--language", help="Filter repo by programming language.")
     search_parser.add_argument("--limit", type=int, default=5)
-    repo_parser.add_argument("--export", choices=["csv","json"], help="Export results as CSV or Json")
+    search_parser.add_argument("--export", choices=["csv","json"], help="Export results as CSV or Json")
 
     args = parser.parse_args()
     if args.command == "repo":
         owner = args.owner.strip()
         repo = args.repo.strip()
+
         if not owner or not repo:
             parser.error("Both owner and repository name are required.")
+        
         data = get_repo(owner,repo)
         display_repo(data)
+
+        if args.export == "csv":
+            export_json(data, f"{repo}.csv")
+        elif args.export == "json":
+            export_json(data, f"{repo}.json")
+    
 
     elif args.command == "user":
         username = args.username.strip()
@@ -48,6 +56,11 @@ def main():
 
         data = get_user(username)
         display_user(data)
+
+        if args.export == "csv":
+            export_json(data, f"{repo}.csv")
+        elif args.export == "json":
+            export_json(data, f"{repo}.json")
 
     elif args.command == "compare":
         owner1 = args.owner1.strip()
@@ -61,6 +74,11 @@ def main():
         data2 = get_repo(owner2, repo2)
         comparison = compare_repos(data1, data2)
         display_comparison(comparison)
+
+        if args.export == "csv":
+            export_json(data, "comparison.csv")
+        elif args.export == "json":
+            export_json(data, "comparison.json")
 
     elif args.command == "search":
         query = args.query.strip()
