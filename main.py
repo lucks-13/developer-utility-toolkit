@@ -2,7 +2,8 @@ import argparse
 from toolkit.github_api import get_repo
 from toolkit.github_user import get_user
 from toolkit.compare import compare_repos
-from toolkit.display import display_repo, display_user, display_comparison
+from toolkit.display import display_repo, display_user, display_comparison, display_search_results
+from toolkit.github_search import search_repos
 
 def main():
     parser = argparse.ArgumentParser(description="Developer Utility Toolkit")
@@ -19,6 +20,8 @@ def main():
     compare_parser.add_argument("repo1")
     compare_parser.add_argument("owner2")
     compare_parser.add_argument("repo2")
+
+    search_parser = subparsers.add_parser("search", help="Search ")
 
     args = parser.parse_args()
     if args.command == "repo":

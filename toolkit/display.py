@@ -134,7 +134,7 @@ def display_search_results(data):
         return
     for i, repo in enumerate(repos, start=1):
         print("\n----------------------------------")
-        print(f"{index}. {repo['Full Name']}")
+        print(f"{i}. {repo['Full Name']}")
         print(f"Description : {repo['Description']}")
         print(f"Language : {repo['Language']}")
         print(f"Stars : {repo['Stars']}")
