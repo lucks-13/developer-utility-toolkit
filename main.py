@@ -14,6 +14,12 @@ def main():
     user_parser = subparsers.add_parser("user",help="Get Github user information.")
     user_parser.add_argument("username",help="Github username")
 
+    compare_parser = subparsers.add_parser("compare", help="Compare two github repos.")
+    compare_parser.add_argument("owner1")
+    compare_parser.add_argument("repo1")
+    compare_parser.add_argument("owner2")
+    compare_parser.add_argument("repo2")
+
     args = parser.parse_args()
     if args.command == "repo":
         owner = args.owner.strip()
@@ -31,6 +37,8 @@ def main():
 
         data = get_user(username)
         display_user(data)
+
+    elif args.command == "compare":
 
 if __name__ == "__main__":
     main()
