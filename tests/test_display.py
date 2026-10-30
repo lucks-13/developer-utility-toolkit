@@ -52,3 +52,5 @@ def test_display_comparison(capsys):
     captured = capsys.readouterr()
     assert "Github Repo Comparison" in captured.out
     assert "cpython" in captured.out
+    assert "requests" in captured.out
+    assert "Most Stars : c" 
