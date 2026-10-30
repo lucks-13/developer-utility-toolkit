@@ -43,4 +43,10 @@ def test_get_user_not_found(mock_get):
     result = get_user("fake-user")
     assert result is None
 
-@patch
+@patch("toolkit.github_user.requests.get")
+def test_get_user_timeout(mock_get):
+    mock_get.side_effect = requests.exceptions.Timeout
+    result = get_user("torvalds")
+    assert result is None
+
+@patch("toolkit.github_user.requests")
