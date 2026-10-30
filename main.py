@@ -43,7 +43,7 @@ def main():
         display_repo(data)
 
         if args.export == "csv":
-            export_json(data, f"{repo}.csv")
+            export_csv(data, f"{repo}.csv")
         elif args.export == "json":
             export_json(data, f"{repo}.json")
     
@@ -58,9 +58,9 @@ def main():
         display_user(data)
 
         if args.export == "csv":
-            export_json(data, f"{repo}.csv")
+            export_csv(data, f"{username}.csv")
         elif args.export == "json":
-            export_json(data, f"{repo}.json")
+            export_json(data, f"{username}.json")
 
     elif args.command == "compare":
         owner1 = args.owner1.strip()
@@ -76,9 +76,9 @@ def main():
         display_comparison(comparison)
 
         if args.export == "csv":
-            export_json(data, "comparison.csv")
+            export_csv(comparison, "comparison.csv")
         elif args.export == "json":
-            export_json(data, "comparison.json")
+            export_json(comparison, "comparison.json")
 
     elif args.command == "search":
         query = args.query.strip()
@@ -91,6 +91,11 @@ def main():
             parser.error("Language cannot be empty.")
         data = search_repos(query,language,args.limit)
         display_search_results(data)
+
+        if args.export == "json":
+            export_json(data, "search_result.csv")
+        elif args.export == "csv":
+            export_csv(data.get(("Repositories", []), "search_result.csv")
 
 if __name__ == "__main__":
     main()
