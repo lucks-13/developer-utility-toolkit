@@ -22,3 +22,12 @@ def test_get_user_success(mock_get):
 
     mock_response.raise_for_status.return_value = None
     mock_get.return_value = mock_response
+
+    result = get_user("torvalds")
+    assert result["Username"] == "torvalds"
+    assert result["Name"] == "Linus Torvalds"
+    assert result["Bio"] == "Not Available"
+    assert result["Location"] == "Portland"
+    assert result["Public Repos"] == 7
+    assert result["Followers"] == 200000
+    
