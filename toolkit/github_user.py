@@ -10,5 +10,11 @@ def get_user(username):
         user_data{
             "Username" : data.get("login") or "Not Available",
             "Name" : data.get("name") or "Not Available",
-            ""
+            "Bio" : data.get("bio") or "Not Available",
+            "Location" : data.get("location") or "Not Available",
+            "Company" : data.get("company") or "Not Available",
+            "Public Repos" : data.get("public_repos",0),
+            "Followers" : data.get("followers",0),
+            
+
         }
