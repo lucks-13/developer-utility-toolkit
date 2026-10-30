@@ -44,5 +44,11 @@ def test_display_comparison(capsys):
         "Stars" : [100, 80],
         "Forks" : [20, 10],
         "Watchers" : [100, 80],
-        "Open Issues"
+        "Open Issues" : [50, 30],
+        "License" : ["MIT", "Apache-2.0"]
     }
+
+    display_comparison(data)
+    captured = capsys.readouterr()
+    assert "Github Repo Comparison" in captured.out
+    assert "cpython" in captured.out
