@@ -29,5 +29,19 @@ def export_csv(data, filename):
 
         if not isinstance(data, list) or not all(isinstance(row, dict) for row in data):
             print("Invalid data format, Unable to export CSV.")
-            return    
+            return None
+
+        if not data:
+            print("No data is available to export.")
+            return None
+
+        fieldnames = data[0].keys()
+        with open(filepath, "w", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames = fieldnames)
+            writer.writeheader()
+            writer.writerows(data)
+        print(f"Data successfully  exported to {filepath}. ")
+        return filepath
+    
+
 
