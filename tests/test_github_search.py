@@ -36,7 +36,7 @@ def test_search_repos_success(mock_get):
     mock_get.assert_called_once_with(
         "https://api.github.com/search/repositories",
         params = {
-            "q": "python language: Python",
+            "q": "python language:Python",
             "sort": "stars",
             "order": "desc",
             "per_page": 5
