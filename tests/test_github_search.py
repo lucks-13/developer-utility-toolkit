@@ -40,6 +40,15 @@ def test_search_repos_success(mock_get):
             "sort" : "stars",
             "order" : "desc",
             "per_page" : 5
-        },timeout=10
-        )
+        },timeout=10)
+
+@patch("toolkit.github_search.requests.get")
+def test_search_repos_empty_results(mock_get):
+    mock_response = Mock()
+    mock_response.json.return_value = {
+        "total_count" : 0,
+        "items" : []
+    }
+
+    mock_response.res
     
