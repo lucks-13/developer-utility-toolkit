@@ -123,7 +123,11 @@ def display_search_results(data):
         print("No search results available.")
         return
     repos = data.get("Repositories", [])
-    
-    
+    print("\n==============================")
+    print("     Github Repo Search       ")
+    print("==============================")
+
+    print(f"\nTotal Results : {data.get('Total Results', 0)}")
+    print(f"Showing : {len(repo)}")
 
 
