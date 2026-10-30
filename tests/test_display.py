@@ -1,4 +1,4 @@
-from toolkit.display import display_repo
+from toolkit.display import display_repo, display_comparison
 
 def test_display_repo(capsys):
     data = {
@@ -35,3 +35,6 @@ def test_display_repo_no_data(capsys):
     display_repo(None)
     captured = capsys.readouterr()
     assert "No Data." in captured.out
+
+def test_display_comparison(capsys):
+    

@@ -26,4 +26,9 @@ def test_compare_repos_success():
     result = compare_repos(repo1, repo2)
     assert result["Repository"] == ["cpython", "requests"]
     assert result["Stars"] == [100, 80]
-    assert result["Forks"] == [20, 10] 
+    assert result["Forks"] == [20, 10]
+    assert result["Language"] == ["Python", "Python"]
+
+def test_compare_repos_missing_data():
+    result = compare_repos(None, None)
+    assert result is None
