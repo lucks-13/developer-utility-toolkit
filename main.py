@@ -24,7 +24,12 @@ def main():
 
     elif args.command == "user":
         username = args.username.strip()
-        
+
+        if not username:
+            parser.error("Github username  is required.")
+
+        data = get_user(username)
+        display_user(data)
 
 if __name__ == "__main__":
     main()
