@@ -61,7 +61,9 @@ def main():
         query = args.query.strip()
         if not query:
             parser.error("Search query is required.")
-        if args.limit < 1 or args
+        if args.limit < 1 or args.limit > 100:
+            parser.error("Limit must be between 1 and 100.")
+        langua
 
 
 if __name__ == "__main__":
