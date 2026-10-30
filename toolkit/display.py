@@ -96,3 +96,11 @@ def display_comparison(data):
     print("==================================")
     print(f"\n{'Metric':<18} {repo1:<20} {repo2:<20}")
     print("----------------------------------")
+    for metric, values in data.items():
+        if metric == "Repository":
+            continue
+        print(f"{metric:<18} {str(values[0]):<20} {str(values[1]):<20}")
+    print("----------------------------------")
+    st
+
+
