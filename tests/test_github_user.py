@@ -30,4 +30,9 @@ def test_get_user_success(mock_get):
     assert result["Location"] == "Portland"
     assert result["Public Repos"] == 7
     assert result["Followers"] == 200000
-    
+    assert result["following"] == 0
+
+    mock_get.assert_called_once_with("https://api.github.com/users/torvalds",timeout=10)
+
+@patch("toolkit.github_user.requests.get")
+def test_get_user_not_found()
