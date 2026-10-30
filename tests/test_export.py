@@ -14,7 +14,7 @@ def test_export_json(temp_path, m_patch):
     result = export_json(data, "test.json")
     assert result is not None
     with open(result, "r") as file:
-        saved == json.load(file)
+        saved = json.load(file)
     assert saved == data
 
 def test_export_json_no_data():
@@ -36,5 +36,14 @@ def test_export_csv(temp_path, m_patch):
             "Stars": 80
         }
     ]
+
+    result = export_csv(data, "test.csv")
+    assert result is not None
+    with open(result, "r") as file:
+        reader = csv.DictReader(file)
+        rows = list(reader)
+    assert len(rows) == 2
+    assert rows[0]["Repository"] == "cpython"
+    assert rows[1]["Repository"] == "requests"
     
 
