@@ -101,6 +101,16 @@ def display_comparison(data):
             continue
         print(f"{metric:<18} {str(values[0]):<20} {str(values[1]):<20}")
     print("----------------------------------")
-    st
+    stars = data["Stars"]
+    if stars[0] > stars[1]:
+        print(f"\nMost Stars : {repo1}")
+    elif stars[1] > stars[0]:
+        print(f"\nMost Stars : {repo2}")
+    else:
+        print("\nMost Stars : Both repo have equal stars.")
+
+    forks = data["Forks"]
+    if forks[0] > forks[1]:
+        print()
 
 
