@@ -44,5 +44,19 @@ python main.py search django --language Python
 ```
 6. Export results
 ```
-python main.py repo python cpython --
+python main.py repo python cpython --export json
 ```
+```
+python main.py search python cpython --export csv
+```
+
+All the exported file will be saved inside the output folder.
+
+# What i learned.
+* working with REST API
+* sending HTTP request using the requests library
+* receiving response as json file and intera
+
+# Ai Disclosure
+
+I used chatgpt as my learning assistant to understand concept, improve my code and logical thinking and to troubleshoot errors, ai guided me to build this project and explicitly told to help me only when i got stuck. 95 to 99 % of the code is Human coding. the ai just gave me instruction when i got struck.
