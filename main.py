@@ -63,7 +63,8 @@ def main():
             parser.error("Search query is required.")
         if args.limit < 1 or args.limit > 100:
             parser.error("Limit must be between 1 and 100.")
-        langua
+        language = args.
+
 
 
 if __name__ == "__main__":
