@@ -79,4 +79,13 @@ def test_display_search_results(capsys):
     }
 
     display_search_results(data)
-    captured = capsys.read
+    captured = capsys.readouterr()
+
+    assert "Github Repo Search" in captured.out
+    assert "python/cpython" in captured.out
+    assert "Python" in captured.out
+
+def test_display_search_results_no_data(capsys):
+    display_search_results(None)
+    captured = capsys.readouterr()
+    assert "No search result available."
