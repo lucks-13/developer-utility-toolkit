@@ -55,7 +55,8 @@ All the exported file will be saved inside the output folder.
 # What i learned.
 * working with REST API
 * sending HTTP request using the requests library
-* receiving response as json file and intera
+* receiving response as json file and interacting with it
+* building cli using argparse
 
 # Ai Disclosure
 
