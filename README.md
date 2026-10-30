@@ -16,3 +16,33 @@ After building two project, i just wanted to explore with external api so i just
 ```
 git clone https://github.com/lucks-13/developer-utility-toolkit.git
 ```
+```
+python main.py
+```
+
+## Available commands.
+
+1. Get repo Info.
+```
+python main.py repo python cpython
+```
+2. Get github user Info.
+```
+python main.py user torvalds
+```
+3. Compare two repo.
+```
+python main.py compare python cpython psf requests
+```
+4. Search repo.
+```
+python main.py search python
+```
+5. search by programming language
+```
+python main.py search django --language Python
+```
+6. Export results
+```
+python main.py repo python cpython --
+```
