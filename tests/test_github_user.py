@@ -49,4 +49,8 @@ def test_get_user_timeout(mock_get):
     result = get_user("torvalds")
     assert result is None
 
-@patch("toolkit.github_user.requests")
+@patch("toolkit.github_user.requests.get")
+def test_get_user_connection_error(mock_get):
+    mock_get.side_effect = requests.exceptions.ConnectionError
+    result = get_user("torvalds")
+    assert result is None
