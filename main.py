@@ -10,6 +10,9 @@ def main():
     repo_parser.add_argument("owner", help="Github username or organization name")
     repo_parser.add_argument("repo", help="Name of the github repo")
 
+    user_parser = subparsers.add_parser("user",help="Get Github user information.")
+    user_parser.add_argument("username",help="Github username")
+
     args = parser.parse_args()
     if args.command == "repo":
         owner = args.owner.strip()
@@ -18,6 +21,10 @@ def main():
             parser.error("Both owner and repository name are required.")
         data = get_repo(owner,repo)
         display_repo(data)
+
+    elif args.command == "user":
+        username = args.username.strip()
+        
 
 if __name__ == "__main__":
     main()
