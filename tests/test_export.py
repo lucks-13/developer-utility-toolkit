@@ -2,8 +2,8 @@ import json
 import csv
 from toolkit.export import export_csv, export_json
 
-def test_export_json(tmp_path, monkeypatch):
-    m_patch.chdir(tmp_path)
+def test_export_json(temp_path, m_patch):
+    m_patch.chdir(temp_path)
 
     data = {
         "Repository": "cpython",
@@ -17,4 +17,24 @@ def test_export_json(tmp_path, monkeypatch):
         saved == json.load(file)
     assert saved == data
 
-def test_
+def test_export_json_no_data():
+    result = export_json(None, "test.json")
+    assert result is None
+
+def test_export_csv(temp_path, m_patch):
+    m_patch.chdir(temp_path)
+
+    data = [
+        {
+            "Repository": "cpython",
+            "Owner": "Python",
+            "Stars": 100
+        },
+        {
+            "Repository": "requests",
+            "Owner": "Python",
+            "Stars": 80
+        }
+    ]
+    
+
