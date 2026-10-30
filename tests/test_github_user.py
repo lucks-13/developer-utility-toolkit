@@ -15,5 +15,10 @@ def test_get_user_success(mock_get):
         "public_repos" : 7,
         "followers" : 200000,
         "following" : 0,
-        
+        "type" : "User",
+        "created_at" : "2011-09-03T15:26:22Z",
+        "html_url" : "https://github.com/torvalds"
     }
+
+    mock_response.raise_for_status.return_value = None
+    mock_get.return_value = mock_response
