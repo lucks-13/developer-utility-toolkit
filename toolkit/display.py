@@ -128,6 +128,11 @@ def display_search_results(data):
     print("==============================")
 
     print(f"\nTotal Results : {data.get('Total Results', 0)}")
-    print(f"Showing : {len(repo)}")
-
+    print(f"Showing : {len(repos)} repositories")
+    if not repos:
+        print("\nNo repositories found.")
+        return
+    for i, repo in enumerate(repos, start=1):
+        print("----------------------------------")
+        
 
