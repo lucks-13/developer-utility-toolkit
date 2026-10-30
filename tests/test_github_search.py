@@ -31,5 +31,15 @@ def test_search_repos_success(mock_get):
 
     assert repo["Repository"] == "cpython"
     assert repo["Full Name"] == "python/cpython"
-    assert repo["Language"] == ""
+    assert repo["Language"] == "Python"
+    assert repo["Stars"] == 100
+    mock_get.assert_called_once_with(
+        "https://api.github.com/search/repositories",
+        params = {
+            "q" : "python language: Python",
+            "sort" : "stars",
+            "order" : "desc",
+            "per_page" : 5
+        },timeout=10
+        )
     
