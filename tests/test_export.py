@@ -2,8 +2,8 @@ import json
 import csv
 from toolkit.export import export_csv, export_json
 
-def test_export_json(temp_path, m_patch):
-    m_patch.chdir(temp_path)
+def test_export_json(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
 
     data = {
         "Repository": "cpython",
@@ -21,8 +21,8 @@ def test_export_json_no_data():
     result = export_json(None, "test.json")
     assert result is None
 
-def test_export_csv(temp_path, m_patch):
-    m_patch.chdir(temp_path)
+def test_export_csv(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
 
     data = [
         {
@@ -46,8 +46,8 @@ def test_export_csv(temp_path, m_patch):
     assert rows[0]["Repository"] == "cpython"
     assert rows[1]["Repository"] == "requests"
 
-def test_export_csv_single_dict(temp_path, m_path):
-    m_path.chdir(temp_path)
+def test_export_csv_single_dict(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
 
     data = {
             "Repository": "cpython",

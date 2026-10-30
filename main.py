@@ -4,6 +4,7 @@ from toolkit.github_user import get_user
 from toolkit.compare import compare_repos
 from toolkit.display import display_repo, display_user, display_comparison, display_search_results
 from toolkit.github_search import search_repos
+from toolkit.export import export_csv, export_json
 
 def main():
     parser = argparse.ArgumentParser(description="Developer Utility Toolkit")
@@ -11,20 +12,24 @@ def main():
     repo_parser = subparsers.add_parser("repo", help="Get github repo information.")
     repo_parser.add_argument("owner", help="Github username or organization name")
     repo_parser.add_argument("repo", help="Name of the github repo")
+    repo_parser.add_argument("--export", choices=["csv","json"], help="Export results as CSV or Json")
 
     user_parser = subparsers.add_parser("user",help="Get Github user information.")
     user_parser.add_argument("username",help="Github username")
+    user_parser.add_argument("--export", choices=["csv","json"], help="Export results as CSV or Json")
 
     compare_parser = subparsers.add_parser("compare", help="Compare two github repos.")
     compare_parser.add_argument("owner1")
     compare_parser.add_argument("repo1")
     compare_parser.add_argument("owner2")
     compare_parser.add_argument("repo2")
+    compare_parser.add_argument("--export", choices=["csv","json"], help="Export results as CSV or Json")
 
     search_parser = subparsers.add_parser("search", help="Search github repo")
     search_parser.add_argument("query")
     search_parser.add_argument("--language", help="Filter repo by programming language.")
     search_parser.add_argument("--limit", type=int, default=5)
+    repo_parser.add_argument("--export", choices=["csv","json"], help="Export results as CSV or Json")
 
     args = parser.parse_args()
     if args.command == "repo":
