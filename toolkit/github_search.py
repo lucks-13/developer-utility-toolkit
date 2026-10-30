@@ -31,6 +31,13 @@ def search_repos(query, language=None, limit=5):
 
             repos.append(repo_data)
         return {
-            "Total Results" : data.get
+            "Total Results" : data.get("total_count", 0),
+            "Repositories" : repos
         }
-
+    except requests.exceptions.HTTPError:
+        if response.status_code == 403:
+            print("Request forbidden.")
+        else:
+            print(f"Github API error : {response.status_code}.")
+        return None
+    except
