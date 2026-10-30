@@ -37,4 +37,12 @@ def test_display_repo_no_data(capsys):
     assert "No Data." in captured.out
 
 def test_display_comparison(capsys):
-    
+    data = {
+        "Repository" : ["cpython", "requests"],
+        "Owner" : ["python", "psf"],
+        "Language" : ["Python", "Python"],
+        "Stars" : [100, 80],
+        "Forks" : [20, 10],
+        "Watchers" : [100, 80],
+        "Open Issues"
+    }
