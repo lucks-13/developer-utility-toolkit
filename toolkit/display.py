@@ -87,4 +87,12 @@ def display_user(data):
 def display_comparison(data):
     if data is None:
         print("No comparison data is available.")
-0
+        return
+
+    repo1 = data["Repository"][0]
+    repo2 = data["Repository"][1]
+    print("\n==================================")
+    print("     Github Repo Comparison       ")
+    print("==================================")
+    print(f"\n{'Metric':<18} {repo1:<20} {repo2:<20}")
+    print("----------------------------------")
