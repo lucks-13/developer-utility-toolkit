@@ -60,7 +60,8 @@ def main():
     elif args.command == "search":
         query = args.query.strip()
         if not query:
-            parser
+            parser.error("Search query is required.")
+        if args.limit < 1 or args
 
 
 if __name__ == "__main__":
