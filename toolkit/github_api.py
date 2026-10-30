@@ -17,7 +17,7 @@ def get_repo(owner, repo):
             "Watchers" : data["watchers_count"],
             "Open Issues" : data["open_issues_count"],
             "Default Branch" : data["default_branch"] or "Not Available",
-            "License" : (data["license"]["spdx_id"] if data["license"] is not None else "Not Available"),
+            "License" : (data.get("license",{}).get("spdx_id") or "Not Available" if data.get("license") is not None else "Not Available"),
             "Size (KB)" : data["size"],
             "Created At" : data["created_at"],
             "Topics" : ", ".join(data["topics"]) if data["topics"] else "None",
