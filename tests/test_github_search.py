@@ -50,5 +50,11 @@ def test_search_repos_empty_results(mock_get):
         "items" : []
     }
 
-    mock_response.res
+    mock_response.raise_for_status.return_value = None
+    mock_get.return_value = mock_response
+    result = search_repos("search-me")
+    assert result["Total Results"] == 0
+    assert result["Repositories"] == []
+
+@patch(toolkit.github_search.re)
     
