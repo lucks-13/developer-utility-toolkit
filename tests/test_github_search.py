@@ -56,5 +56,10 @@ def test_search_repos_empty_results(mock_get):
     assert result["Total Results"] == 0
     assert result["Repositories"] == []
 
-@patch(toolkit.github_search.re)
-    
+@patch(toolkit.github_search.requests.get)
+def test_search_repos_not_found(mock_get):
+    mock_response = Mock()
+    mock_response.status_code = 404
+    mock_response.raise_for_status.side_effect = (requests.exceptions.HTTPError("404 Not Found"))
+    mock_get.return_value = mock_response
+    result = 
