@@ -55,6 +55,8 @@ def test_display_comparison(capsys):
     assert "requests" in captured.out
     assert "Most Stars : cpython" in captured.out
     assert "Most Forks : cpython" in captured.out
-
+    
 def test_display_comparison_no_data(capsys):
-    displa
+    display_comparison(None)
+    captured = capsys.readouterr()
+    assert "No comparison data is available." in captured.out
