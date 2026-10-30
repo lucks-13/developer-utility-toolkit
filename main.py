@@ -1,6 +1,7 @@
 import argparse
 from toolkit.github_api import get_repo
-from toolkit.display import display_repo
+from toolkit.github_user import get_user
+from toolkit.display import display_repo, display_user
 
 def main():
     parser = argparse.ArgumentParser(description="Developer Utility Toolkit")

@@ -53,9 +53,10 @@ def display_user(data):
     print("\n------ Basic Information ------")
     b_fields = [
         "Username",
-        "Owner",
-        "Description",
-        "Language"
+        "Name",
+        "Bio",
+        "Location",
+        "Company"
     ]
 
     for field in b_fields:
@@ -63,27 +64,22 @@ def display_user(data):
 
     print("\n------ Statistics ------")
     stats = [
-        "Stars",
-        "Forks",
-        "Watchers",
-        "Open Issues"
+        "Public Repos",
+        "Followers",
+        "Following"
     ]
 
     for field in stats:
         print(f"{field:<16} : {data.get(field, 'Not Available')}")
 
-    print("\n------ Repo Details ------")
+    print("\n------ Account Details ------")
     details = [
-        "Default Branch",
-        "License",
-        "Size (KB)",
-        "Topics",
-        "Archived",
-        "Is Fork"
+        "Account Type",
+        "Created At",
+        "Profile URL"
     ]
 
     for field in details:
         print(f"{field:<16} : {data.get(field, 'Not Available')}")
 
-    print(f"\n{'URL' :<16} : {data.get('URL','Not Available')}")
     print("\n=============================")
