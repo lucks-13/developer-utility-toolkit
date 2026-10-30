@@ -94,8 +94,8 @@ def main():
 
         if args.export == "json":
             export_json(data, "search_result.csv")
-        elif args.export == "csv":
-            export_csv(data.get(("Repositories", []), "search_result.csv")
+        elif args.export == "csv" and data is not None:
+            export_csv(data.get("Repositories", []), "search_result.csv")
 
 if __name__ == "__main__":
     main()
