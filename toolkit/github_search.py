@@ -23,6 +23,8 @@ def search_repos(query, language=None, limit=5):
                 "Full Name" : repo.get("full_name") or "Not Available",
                 "Owner" : repo.get("owner", {}).get("login", "Not Available"),
                 "Description" : repo.get("description") or "Not Available",
-                "Language" : repo.get("language") or "Not Available"
-                
+                "Language" : repo.get("language") or "Not Available",
+                "Stars" : repo.get("stargazers_count", 0),
+                ""
+
             }
