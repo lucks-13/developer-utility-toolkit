@@ -39,6 +39,17 @@ def main():
         display_user(data)
 
     elif args.command == "compare":
+        owner1 = args.owner1.strip()
+        repo1 = args.repo1.strip()
+        owner2 = args.owner2.strip()
+        repo2 = args.repo2.strip()
+
+        if not all([owner1, repo1, owner2, repo2]):
+            parser.error("All repo details are required.")
+        data1 = get_repo(owner1, repo1)
+        data2 = get_repo(owner2, repo2)
+        comparison = compare_repos(data1, data2)
+        
 
 if __name__ == "__main__":
     main()
