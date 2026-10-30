@@ -23,7 +23,8 @@ def main():
 
     search_parser = subparsers.add_parser("search", help="Search github repo")
     search_parser.add_argument("query")
-    search_parser.add_argument("--language", help="Filter repo by programm")
+    search_parser.add_argument("--language", help="Filter repo by programming language.")
+    search_parser.add_argument("--limit", type=int, default=5)
 
     args = parser.parse_args()
     if args.command == "repo":
@@ -55,6 +56,10 @@ def main():
         data2 = get_repo(owner2, repo2)
         comparison = compare_repos(data1, data2)
         display_comparison(comparison)
+
+    elif args.command == "search":
+        query = 
+
 
 if __name__ == "__main__":
     main()
