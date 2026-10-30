@@ -28,6 +28,13 @@ def compare_repos(repo1, repo2):
             repo2.get("Watchers", 0)
         ],
         "Open Issues" : [
-            
+            repo1.get("Open Issues", 0),
+            repo2.get("Open Issues", 0)
+        ],
+        "License" : [
+            repo1.get("License", "Not Available"),
+            repo2.get("License", "Not Available")
         ]
     }
+
+    return comparison

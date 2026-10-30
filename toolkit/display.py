@@ -83,3 +83,8 @@ def display_user(data):
         print(f"{field:<16} : {data.get(field, 'Not Available')}")
 
     print("\n=============================")
+
+def display_comparison(data):
+    if data is None:
+        print("No comparison data is available.")
+0
