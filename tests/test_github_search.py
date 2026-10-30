@@ -27,5 +27,9 @@ def test_search_repos_success(mock_get):
 
     result = search_repos("python", "Python", 5)
     assert result["Total Results"] == 100
-    repo
+    repo = result["Repositories"][0]
+
+    assert repo["Repository"] == "cpython"
+    assert repo["Full Name"] == "python/cpython"
+    assert repo["Language"] == ""
     
