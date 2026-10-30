@@ -15,6 +15,11 @@ def get_user(username):
             "Company" : data.get("company") or "Not Available",
             "Public Repos" : data.get("public_repos",0),
             "Followers" : data.get("followers",0),
-            
+            "Following" : data.get("following",0),
+            "Account Type" : data.get("type") or "Not Available",
+            "Created At" : data.get("created_at") or "Not Available",
+            "Profile URL" : data.get("html_url") or "Not Available"
 
         }
+
+        return user_data
