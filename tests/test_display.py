@@ -53,4 +53,8 @@ def test_display_comparison(capsys):
     assert "Github Repo Comparison" in captured.out
     assert "cpython" in captured.out
     assert "requests" in captured.out
-    assert "Most Stars : c" 
+    assert "Most Stars : cpython" in captured.out
+    assert "Most Forks : cpython" in captured.out
+
+def test_display_comparison_no_data(capsys):
+    displa
