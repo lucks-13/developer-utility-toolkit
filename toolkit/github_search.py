@@ -25,6 +25,12 @@ def search_repos(query, language=None, limit=5):
                 "Description" : repo.get("description") or "Not Available",
                 "Language" : repo.get("language") or "Not Available",
                 "Stars" : repo.get("stargazers_count", 0),
-                ""
-
+                "Forks" : repo.get("forks_count", 0),
+                "URL" : repo.get("html_url") or "Not Available"
             }
+
+            repos.append(repo_data)
+        return {
+            "Total Results" : data.get
+        }
+
