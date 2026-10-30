@@ -36,11 +36,13 @@ def test_search_repos_success(mock_get):
     mock_get.assert_called_once_with(
         "https://api.github.com/search/repositories",
         params = {
-            "q" : "python language: Python",
-            "sort" : "stars",
-            "order" : "desc",
-            "per_page" : 5
-        },timeout=10)
+            "q": "python language: Python",
+            "sort": "stars",
+            "order": "desc",
+            "per_page": 5
+        },
+        timeout=10
+        )
 
 @patch("toolkit.github_search.requests.get")
 def test_search_repos_empty_results(mock_get):
@@ -56,7 +58,7 @@ def test_search_repos_empty_results(mock_get):
     assert result["Total Results"] == 0
     assert result["Repositories"] == []
 
-@patch(toolkit.github_search.requests.get)
+@patch("toolkit.github_search.requests.get")
 def test_search_repos_not_found(mock_get):
     mock_response = Mock()
     mock_response.status_code = 404
