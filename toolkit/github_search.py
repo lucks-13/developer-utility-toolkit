@@ -7,5 +7,13 @@ def search_repos(query, language=None, limit=5):
         if language:
             search_query += f" language:{language}"
         params = {
-            "q" : 
+            "q" : search_query,
+            "sort" : "stars",
+            "order" : "desc",
+            "per_page" : limit
         }
+
+        response = requests.get(url, params=params, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+        
