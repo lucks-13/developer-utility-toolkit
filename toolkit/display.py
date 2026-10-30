@@ -136,5 +136,9 @@ def display_search_results(data):
         print("\n----------------------------------")
         print(f"{index}. {repo['Full Name']}")
         print(f"Description : {repo['Description']}")
-        print(f"Language : {repo['La']}")
+        print(f"Language : {repo['Language']}")
+        print(f"Stars : {repo['Stars']}")
+        print(f"Forks : {repo['Forks']}")
+        print(f"URL : {repo['URL']}")
+    print("==================================")
 
