@@ -42,6 +42,8 @@ def export_csv(data, filename):
             writer.writerows(data)
         print(f"Data successfully  exported to {filepath}. ")
         return filepath
-    
+    except OSError as error:
+        print(f"Error : {error}")
+        return None
 
 
