@@ -45,5 +45,19 @@ def test_export_csv(temp_path, m_patch):
     assert len(rows) == 2
     assert rows[0]["Repository"] == "cpython"
     assert rows[1]["Repository"] == "requests"
-    
+
+def test_export_csv_single_dict(temp_path, m_path):
+    m_path.chdir(temp_path)
+
+    data = {
+            "Repository": "cpython",
+            "Stars": 100
+        }
+
+    result = export_csv(data, "test.csv")
+    assert result is not None
+
+def test_export_csv_no_data():
+    result = export_csv(None, "test.csv")
+    assert result is None
 
