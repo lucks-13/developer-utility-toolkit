@@ -40,4 +40,9 @@ def search_repos(query, language=None, limit=5):
         else:
             print(f"Github API error : {response.status_code}.")
         return None
-    except
+    except requests.exceptions.ConnectionError:
+        print("Unable to connect to github.")
+        return None
+    except requests.exceptions.Timeout:
+        print("The request timed out.")
+        return None

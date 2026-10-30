@@ -117,6 +117,8 @@ def display_comparison(data):
     else:
         print("Most Forks : Both repo have equal forks.")
     print("----------------------------------")
+
+def displa
     
 
 
