@@ -14,8 +14,20 @@ def export_json(data, filename):
         print(f"Data successfully  exported to {filepath}. ")
         return filepath
     except OSError as error:
-        
+        print(f"Error : {error}")
+        return None
+    
 def export_csv(data, filename):
     if not data:
         print("No data is available to export.")
         return None
+    try:
+        os.makedirs("output", exist_ok=True)
+        filepath = os.path.join("output", filename)
+        if isinstance(data, dict):
+            data = [data]
+
+        if not isinstance(data, list) or not all(isinstance(row, dict) for row in data):
+            print("Invalid data format, Unable to export CSV.")
+            return    
+
