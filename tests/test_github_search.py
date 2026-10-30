@@ -71,4 +71,8 @@ def test_search_repos_timeout(mock_get):
     result = search_repos("python")
     assert result is None
 
-@patch
+@patch("toolkit.github_search.requests.get")
+def test_search_repos_connection_error(mock_get):
+    mock_get.side_effect = requests.exceptions.ConnectionError
+    result = search_repos("python")
+    assert result is None
