@@ -118,7 +118,12 @@ def display_comparison(data):
         print("Most Forks : Both repo have equal forks.")
     print("----------------------------------")
 
-def displa
+def display_search_results(data):
+    if data is None:
+        print("No search results available.")
+        return
+    repos = data.get("Repositories", [])
+    
     
 
 
