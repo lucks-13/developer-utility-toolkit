@@ -63,5 +63,20 @@ def test_display_comparison_no_data(capsys):
 
 def test_display_search_results(capsys):
     data = {
-        "Total Result"
+        "Total Results" : 100,
+        "Repositories" : [
+            {
+                "Repository" : "cpython",
+                "Full Name" : "python/cpython",
+                "Owner" : "python",
+                "Description" : "Python programming language",
+                "Language" : "Python",
+                "Stars" : 100,
+                "Forks" : 20,
+                "URL" : "https://github.com/python/cpython"
+            }
+        ]
     }
+
+    display_search_results(data)
+    captured = capsys.read
