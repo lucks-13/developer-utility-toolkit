@@ -35,4 +35,12 @@ def test_get_user_success(mock_get):
     mock_get.assert_called_once_with("https://api.github.com/users/torvalds",timeout=10)
 
 @patch("toolkit.github_user.requests.get")
-def test_get_user_not_found()
+def test_get_user_not_found(mock_get):
+    mock_response = Mock()
+    mock_response.status_code = 404
+    mock_response.raise_for_status.side_effect = (requests.exceptions.HTTPError("404 Not Found"))
+    mock_get.return_value = mock_response
+    result = get_user("fake-user")
+    assert result is None
+
+@patch
