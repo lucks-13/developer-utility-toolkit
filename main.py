@@ -58,7 +58,9 @@ def main():
         display_comparison(comparison)
 
     elif args.command == "search":
-        query = 
+        query = args.query.strip()
+        if not query:
+            parser
 
 
 if __name__ == "__main__":
