@@ -33,6 +33,14 @@ def get_user(username):
         
         return None
 
-    
+    except requests.exceptions.ConnectionError:
+        print("Unable to connect to Github.")
+        
+        return None
+
+    except requests.exceptions.Timeout:
+        print("The request timed out.")
+
+        return None
 
     
