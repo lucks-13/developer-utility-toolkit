@@ -49,7 +49,7 @@ def main():
         data1 = get_repo(owner1, repo1)
         data2 = get_repo(owner2, repo2)
         comparison = compare_repos(data1, data2)
-        
+        display_comparison(comparison)
 
 if __name__ == "__main__":
     main()
